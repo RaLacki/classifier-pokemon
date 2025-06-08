@@ -1,25 +1,97 @@
-Voici mon petit projet SUR IA
+# 🧠 Classificateur de Type de Pokémon
 
-# Classificateur de Type de Pokémon
+Ce projet est un outil de classification d'images de Pokémon par **type élémentaire** à l'aide de **TensorFlow** et d'un modèle de réseau de neurones convolutifs (**CNN**).  
+Il permet de détecter 5 types de Pokémon :
 
-si EAU FEU ECLAIR TERRE FYING
+> **Eau**, **Feu**, **Éclair**, **Terre**, **Flying**
 
-Ce projet est un outil de classification d'images de Pokémon par type élémentaire à l'aide de **TensorFlow**
+---
 
-Bibliothèques utilisées
+## 📦 Bibliothèques utilisées
 
-- [TensorFlow] : pour le chargement et l’utilisation du modèle de classification.
-- [NumPy]: pour les opérations sur les tableaux de données.
-- [Pillow (PIL)]: pour le traitement des images.
-- [Tkinter] : pour créer l’interface graphique utilisateur.
+- [TensorFlow](https://www.tensorflow.org/) : pour le chargement et l’utilisation du modèle de classification.
+- [NumPy](https://numpy.org/) : pour les opérations sur les tableaux de données.
+- [Pillow (PIL)](https://python-pillow.org/) : pour le traitement des images.
+- [Tkinter] : pour créer l’interface graphique utilisateur (optionnelle).
 
-> Assurez-vous que ces bibliothèques sont installées :
+✅ **Installation :**
 
+```bash
 pip install tensorflow numpy pillow
+```
 
-#Utilisation
+---
 
-1. lancer le model.py pour l'entrainement si pokemon_type_classifier.h5 n est pas encore crée sinon voir 2)
-2. lancer predit.py :apres lancement il faut coller le chemin complet vers l'image de votre pokémon et ajouter apres son nom avec extension(png)
-   exemple : C:\Users\user\pokémon\data\eau\blastoise.png
-3. lancer gui_predict.py : apres lancement il faut naviguée jusqu'a votre image et le selectionnée.
+## 🚀 Fonctionnalités
+
+- 📁 Chargement d'images de Pokémon depuis un dossier organisé (`data/<type>/`)
+- 🔁 Entraînement d'un modèle CNN avec **data augmentation**
+- 🔍 Prédiction du type de Pokémon à partir d'une image
+- 🖼️ Interface graphique simple pour sélectionner une image et afficher la prédiction
+- 💾 Modèle sauvegardé automatiquement au format `.h5`
+
+---
+
+## 📂 Structure du projet
+
+```
+pokemon-classifier/
+│
+├── data/
+│   ├── eau/
+│   ├── feu/
+│   ├── eclair/
+│   ├── terre/
+│   └── flying/
+│
+├── model.py                     # Script d'entraînement du modèle
+├── predict.py                   # Script de prédiction en ligne de commande
+├── gui_predict.py               # Interface graphique Tkinter
+├── pokemon_type_classifier.h5   # Modèle sauvegardé
+└── README.md
+```
+
+---
+
+## 📈 Performances du modèle
+
+- **Images utilisées** : ~30 images par classe
+- **Accuracy entraînement** : entre 85% et 95%
+- **Accuracy validation** : entre 60% et 80% (selon la qualité et diversité des images)
+- **Architecture** :
+  - 2 couches `Conv2D + MaxPooling2D`
+  - 1 couche `Dense` de 64 neurones
+
+---
+
+## 🧠 Utilisation
+
+### 1. Entraîner le modèle (si `pokemon_type_classifier.h5` n'existe pas encore) :
+
+```bash
+python model.py
+```
+
+---
+
+### 2. Lancer la prédiction en ligne de commande :
+
+```bash
+python predict.py
+```
+
+Ensuite, entrez le **chemin complet** vers l’image, par exemple :
+
+```bash
+C:\Users\user\pokémon\data\eclair\pikachu.png
+```
+
+---
+
+### 3. Utiliser l’interface graphique (facultatif) :
+
+```bash
+python gui_predict.py
+```
+
+Une fenêtre s’ouvrira. Naviguez jusqu’à l’image de votre choix.
