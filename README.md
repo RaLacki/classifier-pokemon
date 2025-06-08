@@ -57,7 +57,7 @@ pokemon-classifier/
 
 - **Images utilisées** : ~30 images par classe
 - **Accuracy entraînement** : entre 80% et 90%
-- **Accuracy validation** : entre 60% et 80% (selon la qualité et diversité des images)
+- **Accuracy validation** : entre 50% et 70% (selon la qualité et diversité des images)
 - **Architecture** :
   - 2 couches `Conv2D + MaxPooling2D`
   - 1 couche `Dense` de 64 neurones
